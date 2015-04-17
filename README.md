@@ -29,7 +29,7 @@ Noteworthy key bindings in this configuration (most are just defaults):
    * `PGUP` / `PGDOWN` The usual
    * `r` Reply
  * `I` Go to Inbox and refresh
- * `c` Enter folder to view (`=`-`TAB` tab-completes server-side
+ * `c` Enter folder to view (`=``TAB` tab-completes server-side
    folders). If any folders have new mail, this will default to one of
    them.
  * `N` Mark the selected message as unread
