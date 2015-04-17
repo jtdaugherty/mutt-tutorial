@@ -45,13 +45,19 @@ Noteworthy key bindings in this configuration (most are just defaults):
    `=foo` `RET` will save all tagged messages to the `foo` folder)
  * `f` Forward the selected message
 
-In message review mode, after you've finished composing in your editor:
+In message review mode, after you've finished composing in your editor,
+some keybindings of interest are:
 
  * `e` Edit the message again
+ * `t` Set the TO field
  * `c` Set the CC field
  * `b` Set the BCC field
- * `a` Attach a file
  * `y` Send
+ * `a` Attach a file
+ * `RET` View an attachment
+ * `E` Edit an attachment
+ * `UP`/`DOWN` Change selected attachment
+ * `D` Detach selected attachment
  * `q` Abort composition and return to message list
 
 Other things to try
