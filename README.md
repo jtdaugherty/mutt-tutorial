@@ -18,6 +18,7 @@ highlights:
 Noteworthy key bindings in this configuration (most are just defaults):
  * `?` Help (then `q` to leave help)
  * `j`/`k` Movement keys in message lists
+ * `m` Begin composing a new message
  * `RET` View selected message, then
    * `i` Go back to message list
    * `RET` Scroll down one line
@@ -29,16 +30,16 @@ Noteworthy key bindings in this configuration (most are just defaults):
    folders). If any folders have new mail, this will default to one of
    them.
  * `N` Mark the selected message as unread
- * `m` Begin composing a new message
  * `d` Mark the selected message for deletion
  * `r` Reply to the selected message
  * `$` Save pending changes to mailbox (e.g. delete marked messages) and
    check for new mail in the current folder
- * `s` Move (save) a message to another folder (e.g. `s` `=foo` `RET`
-   saves to the `foo` folder)
+ * `s` Move (save) the selected message to another folder (e.g. `s`
+   `=foo` `RET` saves to the `foo` folder)
  * `t` Tag a message for a future batch operation (`T` tags messages
    matching an expression)
- * `;` Specify an operation to perform on tagged messages
+ * `;` Specify an operation to perform on tagged messages (e.g. `;` `s`
+   `=foo` `RET` will save all tagged messages to the `foo` folder)
  * `f` Forward the selected message
 
 In message review mode, after you've finished composing in your editor:
