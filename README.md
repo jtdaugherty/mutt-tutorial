@@ -60,6 +60,8 @@ There is a [sidebar patch](http://zanshin.net/2015/01/19/teaching-a-homely-mutt-
 
 [Mutt can be used with GPG, PGP, and SMIME.](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff)
 
+If someone is discourteous enough to send you an HTML-only e-mail and you must read it, [that can be done](http://unix.stackexchange.com/questions/42712/open-html-attachments-externally-in-mutt).
+
 If you don't want to store your passwords in your `muttrc` (you don't,
 right?) and you don't want to enter them once each time you start
 `mutt`, you can make mutt get your IMAP and SMTP passwords
