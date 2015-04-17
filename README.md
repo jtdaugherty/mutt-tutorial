@@ -14,11 +14,13 @@ highlights:
  * POP/IMAP support
  * [Bulk operation on many messages using tagging](http://www.mutt.org/doc/manual/manual-4.html#ss4.3)
  * [S/MIME support/PGP/GPG support](http://equiraptor.com/smime_mutt_how-to.html) (see also the [mutt guide page on this](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff))
+ * Support for getting contacts from external sources (e.g. [LDAP](https://github.com/wking/mutt-ldap))
 
 Noteworthy key bindings in this configuration (most are just defaults):
  * `?` Help (then `q` to leave help)
  * `j`/`k` Movement keys in message lists
  * `m` Begin composing a new message
+ * `/` Search messages in the current folder using a [search pattern](http://www.mutt.org/doc/manual/manual-4.html#patterns)
  * `RET` View selected message, then
    * `i` Go back to message list
    * `RET` Scroll down one line
@@ -57,6 +59,11 @@ Other things to try
 There is a [sidebar patch](http://zanshin.net/2015/01/19/teaching-a-homely-mutt-new-tricks/) for `mutt`.
 
 [Mutt can be used with GPG, PGP, and SMIME.](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff)
+
+If you don't want to store your passwords in your `muttrc` (you don't,
+right?) and you don't want to enter them once each time you start
+`mutt`, you can make mutt get your IMAP and SMTP passwords
+[from the OS X keychain](https://blog.aedifice.org/2009-10-18-use-mac-os-xs-keychain-for-password-retrieval-in-mutt.html), although YMMV.
 
 Server-side mail filtering with [procmail](http://userpages.umbc.edu/~ian/procmail.html):
 ```
