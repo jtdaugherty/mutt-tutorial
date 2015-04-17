@@ -19,6 +19,7 @@ highlights:
 Noteworthy key bindings in this configuration (most are just defaults):
  * `?` Help (then `q` to leave help)
  * `j`/`k` Movement keys in message lists
+ * `TAB` Select next unread message
  * `m` Begin composing a new message
  * `/` Search messages in the current folder using a [search pattern](http://www.mutt.org/doc/manual/manual-4.html#patterns)
  * `RET` View selected message, then
@@ -56,7 +57,10 @@ In message review mode, after you've finished composing in your editor:
 Other things to try
 -------------------
 
-There is a [sidebar patch](http://zanshin.net/2015/01/19/teaching-a-homely-mutt-new-tricks/) for `mutt`.
+There is a [sidebar patch](http://zanshin.net/2015/01/19/teaching-a-homely-mutt-new-tricks/) for `mutt`.  If you want to install it easily on OS X with Homebrew, run this instead of `brew install mutt`:
+```
+brew install kevwil/patches/mutt --with-sidebar-patch
+```
 
 [Mutt can be used with GPG, PGP, and SMIME.](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff)
 
