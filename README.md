@@ -13,7 +13,7 @@ highlights:
  * Good threading support
  * POP/IMAP support
  * [Bulk operation on many messages using tagging](http://www.mutt.org/doc/manual/manual-4.html#ss4.3)
- * [S/MIME support](http://equiraptor.com/smime_mutt_how-to.html)
+ * [S/MIME support/PGP/GPG support](http://equiraptor.com/smime_mutt_how-to.html) (see also the [mutt guide page on this](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff))
 
 Noteworthy key bindings in this configuration (most are just defaults):
  * `?` Help (then `q` to leave help)
@@ -55,6 +55,8 @@ Other things to try
 -------------------
 
 There is a [sidebar patch](http://zanshin.net/2015/01/19/teaching-a-homely-mutt-new-tricks/) for `mutt`.
+
+[Mutt can be used with GPG, PGP, and SMIME.](http://dev.mutt.org/trac/wiki/MuttGuide#Advancedstuff)
 
 Server-side mail filtering with [procmail](http://userpages.umbc.edu/~ian/procmail.html):
 ```
