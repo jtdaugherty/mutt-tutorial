@@ -1,0 +1,177 @@
+# Emacs, this is a -*- conf -*- file
+#
+# Learn more about this file at http://www.mutt.org/doc/manual/
+#
+# To use:
+# mkdir -p ~/.mutt/cache
+# Install as ~/.muttrc
+
+set from=you@galois.com
+set imap_user='imap_username'
+set spoolfile=imaps://mail.galois.com/INBOX
+set smtp_url="smtp://imap_username@relay.galois.com:587"
+set folder="imaps://mail.galois.com/"
+set realname="Your Name Here"
+set signature="~/.signature"
+set editor="vim"
+
+# Where I want mutt to load/store aliases
+set alias_file=~/.mail_aliases
+# Now load the aliases on startup
+source ~/.mail_aliases
+
+# I subscribe to a lot of mailing lists, so this is _very_ useful. This
+# groups messages on the same subject to make it easier to follow a
+# discussion. Mutt will draw a nice tree showing how the discussion
+# flows.
+set sort=threads
+set sort_aux=reverse-date-received
+
+# Other basics:
+set reverse_name=yes
+set reverse_realname=no
+# Where to put sent mail
+set record="+outbox"
+# Where to put drafts
+set postponed="+drafts"
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file="~/.mutt/certificates"
+set imap_check_subscribed
+set net_inc=5
+set imap_keepalive=30
+set move=no
+set delete=yes
+set mail_check=60
+set timeout=15
+
+# Some other useful settings:
+set attribution=""              # how to attribute replies when viewing messages
+set charset="utf-8"	        # character set for your terminal
+set noconfirmappend		# don't ask me if i want to append to mailboxes
+set copy=yes			# always save a copy of outgoing messages
+set fast_reply			# skip initial prompts when replying
+set ispell="/usr/bin/ispell"
+set folder_format="  %7N %f "   # Format of the folder list
+set hdr_format=" %Z %-23.23n  │ %s" # format of the index
+set help=no			# show the help lines
+set hostname="galois.com"	# my DNS domain
+set include			# always include messages when replying
+set sleep_time=0
+set indent_string="> "		# how to quote replied text
+set nomark_old			# i don't care about whether a message is old
+set mail_check=10		# how often to poll for new mail (in seconds)
+set smart_wrap=yes
+set markers=no
+set menu_scroll			# no implicit next-page/prev-page
+# XXX usually want this to be "yes" but "no" works better for the
+# galois pastebin list.  need to set up a shortcut (c-f?) to
+# inline-forward
+set mime_forward=no
+set mime_forward_rest=no
+set pager_index_lines=7         # how many index lines to show in the pager
+set print_command='lpr'
+set prompt_after=no
+set quote_regexp="^ *[a-zA-Z]*[>#] *"	# how to catch quoted text
+set reply_to			# always use reply-to if present
+set sort_browser=reverse-date	# how to sort files in the dir browser
+set status_format="─%r─Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?  %l]───(%s)─%>─(%P)───"
+set nouse_domain		# don't qualify local addresses with $domain
+set use_from			# always generate the `From:' header field
+set pgp_verify_sig=no		# don't automatically verify message signatures
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Header fields I don't normally want to see
+#
+ignore *		# this means "ignore all lines by default"
+# I do want to see these fields, though!
+unignore	from: subject to cc mail-followup-to \
+		date
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Color settings
+#
+
+color index      brightgreen    black    ~N
+color index      black        green      ~T
+color index      brightyellow        black      ~F
+color normal brightwhite black
+color hdrdefault brightgreen black
+color quoted green black
+color signature yellow black
+color indicator black green
+color error brightyellow red
+color status brightwhite blue
+color tree brightblue black	# the thread tree in the index menu
+color tilde magenta black
+color message brightcyan black
+color markers brightcyan black
+color attachment brightmagenta black
+color search white green	# how to hilite search patterns in the pager
+color body brightblue black [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
+color underline brightgreen black
+color body brightyellow black "(ftp|http|https|svn)://[^ ]+"	# point out URLs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Key bindings
+#
+#	maps:
+#		alias		alias menu
+#		attach		attachment menu
+#		browser		directory browser
+#		compose		compose menu
+#		index		message index
+#		pgp		pgp menu
+#		postpone	postponed message recall menu
+#		generic		generic keymap for all of the above
+#		editor		line editor
+#		pager		text viewer
+#		
+
+macro index I c!<return>
+macro pager I c!<return>
+bind generic "\e<" first-entry	# emacs-like bindings for moving to top/bottom
+bind generic \e> last-entry
+bind generic { top-page
+bind generic } bottom-page
+bind generic \177 last-entry
+bind index <up> previous-entry
+bind index <down> next-entry
+bind pager <up> previous-entry
+bind pager <down> next-entry
+macro index \cb |urlview\n	# simulate the old browse-url function
+macro index S s+spam\n
+macro pager S s+spam\n
+# Macro to move all tagged messages to the attic and refresh the
+# current mailbox.
+macro generic A ";s=attic^M$"
+bind pager G bottom	# just like vi and less
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Mailboxes to watch for new mail
+#
+#	mailboxes <path1> [ <path2> ... ]
+# mailboxes =folder1 =folder2 ...
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Specify the order of the headers to appear when displaying a message
+#
+#	hdr_order <hdr1> [ <hdr2> ... ]
+#
+
+unhdr_order *				# forget the previous settings
+hdr_order date from subject to cc
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Automatically use entries from ~/.mailcap to view these MIME types
+#
+#	auto_view <type> [ <type> ... ]
+
+auto_view application/x-gunzip
+auto_view application/x-gzip
